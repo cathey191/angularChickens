@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import chickenData from '../../assets/chickenData.json';
+import chickenData from '../../../assets/chickenData.json';
 
 @Component({
   selector: 'app-tree',
