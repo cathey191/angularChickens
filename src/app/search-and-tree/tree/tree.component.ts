@@ -7,7 +7,7 @@ import chickenData from '../../../assets/chickenData.json';
   styleUrls: ['./tree.component.css']
 })
 export class TreeComponent implements OnInit {
-  public chickenData;
+  public chickenData = chickenData;
 
   constructor() {}
 
