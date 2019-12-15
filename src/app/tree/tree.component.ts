@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import chickenData from '../../../assets/chickenData.json';
+import chickenData from '../../assets/chickenData.json';
 
 @Component({
   selector: 'app-tree',
@@ -7,8 +7,6 @@ import chickenData from '../../../assets/chickenData.json';
   styleUrls: ['./tree.component.css']
 })
 export class TreeComponent implements OnInit {
-  public chickenData = chickenData;
-
   constructor() {}
 
   ngOnInit() {
