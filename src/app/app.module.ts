@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import {TreeComponent} from './tree/tree.component';
+import { TreeComponent } from './tree/tree.component';
 import { SearchComponent } from './search/search.component';
-import {BranchComponent} from './tree/branch/branch.component';
+import { BranchComponent } from './tree/branch/branch.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {BranchComponent} from './tree/branch/branch.component';
     BranchComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
