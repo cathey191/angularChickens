@@ -3,26 +3,37 @@ export interface IParents {
   parentTwo: string;
 }
 
-export interface IElement {
+export interface IChicken {
   type: string;
   parents: IParents;
 }
 
-export interface IData {
-  tierThree: IElement;
+export interface IChickens {
+  chickens: IChicken[];
+  currentChicken: IChicken;
 }
 
-export const dataState: IData = {
-  tierThree:
-    {
+export const initialState: IChickens = {
+  chickens:
+    [{
       type: 'Water',
       parents: {
         parentOne: 'Gunpowder',
         parentTwo: 'Snowball'
       }
+    },
+    {
+      type: 'Snowball',
+      parents: {
+        parentOne: 'Blue',
+        parentTwo: 'Log'
+      }
+    }],
+  currentChicken: {
+    type: 'Water',
+    parents: {
+      parentOne: 'Gunpowder',
+      parentTwo: 'Snowball'
     }
-}
-
-export function getInitialState(): IData {
-  return dataState;
+  }
 }

@@ -6,7 +6,8 @@ import { SearchComponent } from './search/search.component';
 import { BranchComponent } from './tree/branch/branch.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
-import {appReducers} from './app.reducers';
+import {appReducer} from './app.reducer';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import {appReducers} from './app.reducers';
     BranchComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(appReducers)
+    StoreModule.forRoot(appReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

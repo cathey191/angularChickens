@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {IData} from '../store/store.state';
+import {IChickens} from '../store/store.state';
 import {select, Store} from '@ngrx/store';
-import {tap} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
+import {IStoreState} from '../app.reducer';
+import {selectChickenList} from '../store/store.selectors';
 
 @Component({
   selector: 'app-search',
@@ -11,22 +13,21 @@ import {tap} from 'rxjs/operators';
 })
 export class SearchComponent {
 
-  public data$;
+  public chickenList$;
 
-  constructor(private store: Store<IData>) {}
+  constructor(private _store: Store<IStoreState>) {}
 
   searchForm = new FormGroup({
     searchQuery: new FormControl('')
   });
 
   public search () {
-    this.data$ = this.store.pipe(
-      tap(a => console.log(a)),
-      select('search'),
+    this.chickenList$ = this._store.pipe(
+      select(selectChickenList),
       tap(a => console.log(a))
     ).subscribe();
 
-    console.log(this.data$);
+    // console.log(this.data$);
   }
 
 }
