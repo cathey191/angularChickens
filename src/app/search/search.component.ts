@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
-import {filter, map, tap} from 'rxjs/operators';
+import {find, map, tap} from 'rxjs/operators';
 import {IStoreState} from '../app.reducer';
-import {selectChickenList, selectSelectedChicken} from '../store/store.selectors';
-import {chickenList} from '../store/chickens/chickens.state';
+import {selectChickenList} from '../store/store.selectors';
 
 @Component({
   selector: 'app-search',
@@ -22,15 +21,13 @@ export class SearchComponent {
   });
 
   public search () {
-    // console.log(this.searchForm.value.searchQuery)
-
     this.currentChicken$ = this._store.pipe(
       select(selectChickenList),
-      // map((randomName, i) => randomName[i].type === this.searchForm.value.searchQuery),
+      map(chickens => chickens.find(
+        (chickenList) => chickenList.type === this.searchForm.value.searchQuery
+      )),
       tap(a => console.log(a))
     ).subscribe();
-
-    // console.log(this.data$);
   }
 
 }

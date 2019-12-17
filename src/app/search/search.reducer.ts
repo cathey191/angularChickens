@@ -1,26 +1,23 @@
-import {initialState} from '../store/store.state';
+import {IChickens, initialState} from '../store/store.state';
 import {ESearchActions, SearchActions} from './search.actions';
-import {IStoreState} from '../app.reducer';
 
-export const searchReducer = (
+export const storeReducer = (
   state = initialState,
   action: SearchActions
-): IStoreState => {
+): IChickens => {
   switch (action.type) {
     case ESearchActions.GetChickensSuccess: {
       return {
         ...state,
-        search: {
-          chickens: action.payload
-        }
+        // @ts-ignore
+        chickens: action.payload
       };
     }
     case ESearchActions.GetChickenSuccess: {
       return {
         ...state,
-        search: {
-          currentChicken: action.payload
-        }
+        // @ts-ignore
+        currentChicken: action.payload
       };
     }
     default:

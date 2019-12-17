@@ -1,5 +1,5 @@
 import {ActionReducerMap} from '@ngrx/store';
-import {searchReducer} from './search/search.reducer';
+import {storeReducer} from './search/search.reducer';
 import {IChickens} from './store/store.state';
 
 export interface IStoreState {
@@ -7,5 +7,5 @@ export interface IStoreState {
 }
 
 export const appReducer: ActionReducerMap<any> = {
-  search: searchReducer
+  search: storeReducer
 };
