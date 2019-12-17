@@ -1,3 +1,5 @@
+import {chickenList} from './chickens/chickens.state';
+
 export interface IParents {
   parentOne: string;
   parentTwo: string;
@@ -14,21 +16,7 @@ export interface IChickens {
 }
 
 export const initialState: IChickens = {
-  chickens:
-    [{
-      type: 'Water',
-      parents: {
-        parentOne: 'Gunpowder',
-        parentTwo: 'Snowball'
-      }
-    },
-    {
-      type: 'Snowball',
-      parents: {
-        parentOne: 'Blue',
-        parentTwo: 'Log'
-      }
-    }],
+  chickens: chickenList,
   currentChicken: {
     type: 'Water',
     parents: {

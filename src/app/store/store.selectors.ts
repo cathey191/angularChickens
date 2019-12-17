@@ -9,7 +9,7 @@ export const selectChickenList = createSelector(
   (state: IChickens) => state.chickens
 );
 
-// export const selectSelectedChicken = createSelector(
-//   selectChickens,
-//   (state: IChickens) => state.selectedChicken
-// )
+export const selectSelectedChicken = createSelector(
+  selectSearch,
+  (state: IChickens) => state.currentChicken
+);
