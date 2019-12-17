@@ -11,7 +11,7 @@
     type="text">
   <button type="submit">Search</button>
 </form>
-<!--<h2-->
-  <!--*ngIf="(chickenList$ | async) as chicken">-->
-  <!--{{chicken.type}}-->
-<!--</h2>-->
+<p
+  *ngIf="(currentChicken$ | async) as chicken">
+  {{chicken.type}}
+</p>
