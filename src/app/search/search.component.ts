@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
-import {find, map, tap} from 'rxjs/operators';
 import {IStoreState} from '../app.reducer';
-import {selectChickenList, selectSelectedChicken} from '../store/store.selectors';
+import {selectSelectedChicken} from '../store/store.selectors';
 import {Observable} from 'rxjs';
-import {IChicken, IChickens} from '../store/store.state';
+import {IChicken} from '../store/store.state';
+import {GetChickens} from './search.actions';
 
 @Component({
   selector: 'app-search',
@@ -30,6 +30,8 @@ export class SearchComponent implements OnInit {
 
   public search () {
     // console.log()
+
+    // this._store.dispatch(new GetChicken())
 
     // this.currentChicken$ = this._store.pipe(
     //   // tap(e => console.log(e)),

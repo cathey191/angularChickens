@@ -4,8 +4,8 @@ import {IChicken} from '../store/store.state';
 export enum ESearchActions {
   GetChickens = '[data] get chickens',
   GetChickensSuccess = '[data] get chickens success',
-  GetChicken = '[data] get chicken',
-  GetChickenSuccess = '[data] get chickens success'
+  GetChicken = '[data] get search chicken',
+  GetCurrentChickenSuccess = '[data] get chickens success'
 }
 
 export class GetChickens implements Action {
@@ -19,11 +19,12 @@ export class GetChickensSuccess implements Action {
 
 export class GetChicken implements Action {
   public readonly type = ESearchActions.GetChicken;
+  constructor(public payload: string) {}
 }
 
-export class GetChickenSuccess implements Action {
-  public readonly type = ESearchActions.GetChickenSuccess;
+export class GetCurrentChickenSuccess implements Action {
+  public readonly type = ESearchActions.GetCurrentChickenSuccess;
   constructor(public payload: IChicken) {}
 }
 
-export type SearchActions = GetChickens | GetChickensSuccess | GetChicken | GetChickenSuccess;
+export type SearchActions = GetChickens | GetChickensSuccess | GetChicken | GetCurrentChickenSuccess;
