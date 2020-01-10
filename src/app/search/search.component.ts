@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
   }
 
   public search () {
-    // console.log()
+    console.log("working")
 
     // this._store.dispatch(new GetChicken())
 

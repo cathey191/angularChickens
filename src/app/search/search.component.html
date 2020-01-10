@@ -3,7 +3,11 @@
   [formGroup]="searchForm"
   method="POST"
   onsubmit="event.preventDefault();return false">
-  <label for="search"></label>
+  <label
+    for="search"
+    class="v-hidden">
+    Search
+  </label>
   <input
     class="search-input"
     id="search"
