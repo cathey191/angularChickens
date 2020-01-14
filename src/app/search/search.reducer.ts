@@ -18,11 +18,10 @@ export const storeReducer = (
         currentChicken: action.payload
       };
     }
-    case ESearchActions.GetChicken: {
+    case ESearchActions.GetChicken: {    // todo listen to search done action
       return {
         ...state,
-        currentChicken: action.payload.map(chickens => chickens.find(
-          (chicken) => chicken.type === 'Gold'
+        currentChicken: action.payload // todo chicken returned
         ))
       };
     }

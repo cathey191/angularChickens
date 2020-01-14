@@ -31,6 +31,8 @@ export class SearchComponent implements OnInit {
   public search () {
     console.log("working")
 
+      // todo subscribe to the search result which is in the store
+
     // this._store.dispatch(new GetChicken())
 
     // this.currentChicken$ = this._store.pipe(

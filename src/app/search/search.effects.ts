@@ -12,9 +12,14 @@ export class ChickenEffects {
     private _store: Store<IStoreState>
   ) {}
 
-  // @Effect()
-  // getChicken$ = this._actions$.pipe(
-  //   ofType<GetChicken>(ESearchActions.GetChicken),
-  //   map()
-  // )
+  @Effect()
+  getChicken$ = this._actions$.pipe(
+    ofType<GetChicken>(ESearchActions.GetChicken),
+    // todo switchmap onto the select
+    // todo select all the chickens from store
+      map(chickens => chickens.find(
+        (chickenList) => chickenList.type === action.search query // this is from the ofType<GetChicken>(ESearchActions.GetChicken)
+      ))
+    // todo map onto a new search done action
+  );
 }
