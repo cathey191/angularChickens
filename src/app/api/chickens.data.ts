@@ -1,4 +1,4 @@
-import {IChicken} from '../store.state';
+import {IChicken} from './chicken-service';
 
 export const chickenList: IChicken[] = [
   {

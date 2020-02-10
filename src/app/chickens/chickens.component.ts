@@ -2,19 +2,20 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {IStoreState} from '../app.reducer';
-import {selectSelectedChicken} from '../store/store.selectors';
+import {ChickenSelectors} from './chickens.selectors';
 import {Observable} from 'rxjs';
-import {IChicken} from '../store/store.state';
-import {GetChickens} from './search.actions';
+import {GetChickens} from './chickens.actions';
+import {IChicken} from '../api/chicken-service';
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  templateUrl: './chickens.component.html',
+  styleUrls: ['./chickens.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class ChickensComponent implements OnInit {
 
   public currentChicken$: Observable<IChicken>;
+  public chickens$: Observable<IChicken[]>;
 
   constructor(private _store: Store<IStoreState>) {}
 
@@ -23,13 +24,24 @@ export class SearchComponent implements OnInit {
   });
 
   public ngOnInit () {
-    this.currentChicken$ = this._store.pipe(
-      select(selectSelectedChicken)
+    this._store.dispatch(new GetChickens());
+    this.chickens$ = this._store.pipe(
+        select(ChickenSelectors.selectChickenList)
     );
+
+    console.log(this.chickens$)
+
+    // this.currentChicken$ = this._store.pipe(
+    //   select(selectSelectedChicken)
+    // );
   }
 
   public search () {
-    console.log("working")
+
+      this.currentChicken$ = this._store.pipe(
+          select(ChickenSelectors.selectSpecificChicken, { specificChicken: this.searchForm.value.searchQuery })
+      );
+
 
       // todo subscribe to the search result which is in the store
 

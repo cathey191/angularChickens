@@ -1,6 +1,5 @@
 import {ActionReducerMap} from '@ngrx/store';
-import {storeReducer} from './search/search.reducer';
-import {IChickens} from './store/store.state';
+import {IChickens, storeReducer} from './chickens/chickens.reducer';
 
 export interface IStoreState {
   search: IChickens;

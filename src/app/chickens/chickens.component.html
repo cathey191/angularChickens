@@ -19,3 +19,7 @@
   *ngIf="(currentChicken$ | async) as chicken">
   {{chicken.type}}
 </p>
+
+<h3>{{ currentChicken$ | async | json }}</h3>
+
+<p>{{ chickens$ | async | json }}</p>

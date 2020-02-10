@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {IChicken} from '../store/store.state';
+import {IChicken} from '../api/chicken-service';
 
 export enum ESearchActions {
   GetChickens = '[data] get chickens',
@@ -27,4 +27,4 @@ export class GetCurrentChickenSuccess implements Action {
   constructor(public payload: IChicken) {}
 }
 
-export type SearchActions = GetChickens | GetChickensSuccess | GetChicken | GetCurrentChickenSuccess;
+export type ChickensActions = GetChickens | GetChickensSuccess | GetChicken | GetCurrentChickenSuccess;
