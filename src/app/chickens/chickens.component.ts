@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {IStoreState} from '../app.reducer';
@@ -6,6 +6,8 @@ import {ChickenSelectors} from './chickens.selectors';
 import {Observable} from 'rxjs';
 import {GetChickens} from './chickens.actions';
 import {IChicken} from '../api/chicken-service';
+
+import {isBool, Value} from '@trademe/ensure';
 
 @Component({
   selector: 'app-search',
@@ -16,6 +18,7 @@ export class ChickensComponent implements OnInit {
 
   public currentChicken$: Observable<IChicken>;
   public chickens$: Observable<IChicken[]>;
+  @Input() @Value(isBool) public inline: boolean;
 
   constructor(private _store: Store<IStoreState>) {}
 
