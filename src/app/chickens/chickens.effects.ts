@@ -22,7 +22,6 @@ export class ChickenEffects {
         ofType<GetChickens>(ESearchActions.GetChickens),
         withLatestFrom(this._store.select(ChickenSelectors.selectChickenList)),
         switchMap(([action, chickenList]) => {
-            debugger
             return chickenList.length ? of(null) : this._chickenService.getChickens();
         }),
         filter(Boolean),

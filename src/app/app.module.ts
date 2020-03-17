@@ -11,6 +11,7 @@ import {CommonModule} from '@angular/common';
 import {EffectsModule} from '@ngrx/effects';
 import {ChickenEffects} from './chickens/chickens.effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {DeferLoadModule} from '@trademe/ng-defer-load';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
         ReactiveFormsModule,
         StoreModule.forRoot(appReducer),
         EffectsModule.forRoot([ChickenEffects]),
-        StoreDevtoolsModule.instrument({ maxAge: 50 })
+        StoreDevtoolsModule.instrument({ maxAge: 50 }),
+        DeferLoadModule
     ],
     providers: [],
     bootstrap: [AppComponent]

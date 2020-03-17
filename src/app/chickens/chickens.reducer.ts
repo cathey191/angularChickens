@@ -22,8 +22,6 @@ export const storeReducer = (
   action: any
 ): IChickens => {
 
-    debugger;
-
   switch (action.type) {
     case ESearchActions.GetChickensSuccess: {
       return {
